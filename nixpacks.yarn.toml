@@ -22,16 +22,16 @@ nixpkgsArchive = 'e05605ec414618eab4a7a6aea8b38f6fbbcc8f08'
 [phases.install]
 dependsOn = ['setup']
 cmds = ['yarn install']
-cacheDirectories = ['/root/.local/share/pnpm/store/v3']
-paths = ['/app/node_modules/.bin']
+# cacheDirectories = ['/root/.local/share/pnpm/store/v3']
+# paths = ['/app/node_modules/.bin']
 
 [phases.build]
 dependsOn = ['install']
 cmds = ['yarn build']
-cacheDirectories = [
-    '.next/cache',
-    'node_modules/.cache',
-]
+# cacheDirectories = [
+#     '.next/cache',
+#     'node_modules/.cache',
+# ]
 
 [start]
 cmd = 'yarn start'
