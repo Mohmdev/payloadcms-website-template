@@ -1,6 +1,6 @@
 [build]
 builder = "NIXPACKS"
-nixpacksConfigPath = "nixpacks.toml"
+# nixpacksConfigPath = "nixpacks.yarn.toml"
 
 [deploy]
 region = "europe-west4"
