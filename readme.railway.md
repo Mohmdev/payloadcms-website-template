@@ -7,7 +7,7 @@ ___
 
 ![Payload 3 Website Template](https://res.cloudinary.com/mohmdev-cloud/image/upload/v1724247728/payload_hero_ssoo3j.png)
 
-This is the latest [Payload 3-beta.88 Website Template](https://github.com/payloadcms/payload/releases/tag/v3.0.0-beta.88) configured to be deployed in Railway.
+This is the latest [Payload 3-beta.88 Website Template](https://github.com/payloadcms/payload/releases/tag/v3.0.0-beta.88) configured to be hosted in Railway.
 
 **This template is right for you if you are working on:**
 
@@ -39,8 +39,8 @@ This template includes a beautifully designed, production-ready front-end built 
 - Redirects
 - Live preview
 
-### Usage
-Once your template is deployed, it should work out of the box without needing additional configuration. After deployment, navigate to your application's URL. You'll find an empty website. That is because there is no data in the database yet.
+### Next Steps
+Once your template is deployed, it should work out of the box. Navigate to your application's URL and you'll find an empty website. This is because there is no data in the database yet.
 You'll find instructions on your screen to set up your admin account. After creating your account, you'll have access to the admin panel and you can seed the database with a few pages, posts, and projects.<br>
 ![Seed Database](https://res.cloudinary.com/mohmdev-cloud/image/upload/v1724246355/seed_xkaadv.png)
 
