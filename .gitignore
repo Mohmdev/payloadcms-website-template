@@ -7,4 +7,5 @@ node_modules
 .vercel
 
 # Payload default media upload directory
-public/media/2/*
+public/media/*
+!public/media/.gitkeep
