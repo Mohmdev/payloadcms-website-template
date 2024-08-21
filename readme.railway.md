@@ -5,7 +5,6 @@ short description: To power websites, blogs, or portfolios from small to enterpr
 category: CMS
 ___
 
-## Payload 3 Website Template
 ![Payload 3 Website Template](https://res.cloudinary.com/mohmdev-cloud/image/upload/v1724247728/payload_hero_ssoo3j.png)
 
 This is the latest [Payload 3-beta.88 Website Template](https://github.com/payloadcms/payload/releases/tag/v3.0.0-beta.88) configured to be deployed in Railway.
@@ -41,15 +40,15 @@ This template includes a beautifully designed, production-ready front-end built 
 - Live preview
 
 ### Usage
-Spinning this template up works out of the box without needing additional configuration. Once the project is deployed and you navigate to your application's URL, you'll find an empty website. That is because there is no data in the database yet.
-You'll find instructions on your screen to set up your admin account. After creating your account, you'll have access to the admin panel and you can seed the database with a few pages, posts, and projects.<br/>
+Once your template is deployed, it should work out of the box without needing additional configuration. After deployment, navigate to your application's URL. You'll find an empty website. That is because there is no data in the database yet.
+You'll find instructions on your screen to set up your admin account. After creating your account, you'll have access to the admin panel and you can seed the database with a few pages, posts, and projects.<br>
 ![Seed Database](https://res.cloudinary.com/mohmdev-cloud/image/upload/v1724246355/seed_xkaadv.png)
 
 
-Once you are done seeding your database, simply refresh your application's homepage and enjoy.
+Once you are done seeding your database, simply refresh your application's homepage and enjoy your Full-stack Next.js 15 website powered by PayloadCMS.
 
 
 ---
 
-You can find the source code [here](https://github.com/MohmDev/payloadcms-website-beta.88). <br/>
+You can find the source code [here](https://github.com/MohmDev/payloadcms-website-beta.88). <br>
 Leave a ⭐ if you liked this project.
