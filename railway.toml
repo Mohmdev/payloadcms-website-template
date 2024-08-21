@@ -3,7 +3,7 @@ builder = "NIXPACKS"
 nixpacksConfigPath = "railway.build.npm.toml"
 
 [deploy]
-region = "europe-west4"
+# region = "europe-west4"
 runtime = "V2"
 numReplicas = 1
 restartPolicyType = "ON_FAILURE"
