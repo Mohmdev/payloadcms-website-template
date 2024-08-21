@@ -1,7 +1,7 @@
 ___
-title: Payload 3 Website Template
-avatar: https://res.cloudinary.com/mohmdev-cloud/image/upload/v1724247939/payload_logo_icon_ppuvdp.png
-short description: To power websites, blogs, or portfolios from small to enterprise
+title: Payload 3 Website Template<br>
+avatar: https://payloadcms.com/images/favicon.svg<br>
+short description: To power websites, blogs, or portfolios from small to enterprise<br>
 category: CMS
 ___
 
@@ -23,7 +23,8 @@ This template includes a beautifully designed, production-ready front-end built 
 
 #### Core features:
 
-- [Next.js App Router](https://nextjs.org)
+- [Next.js 15 (App Router)](https://nextjs.org)
+- [React 19](https://19.react.dev)
 - [TypeScript](https://www.typescriptlang.org)
 - [React Hook Form](https://react-hook-form.com)
 - [Payload Admin Bar](https://github.com/payloadcms/payload-admin-bar)
