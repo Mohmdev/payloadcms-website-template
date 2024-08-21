@@ -2,6 +2,18 @@
 builder = "NIXPACKS"
 nixpacksConfigPath = "railway.build.npm.toml"
 
+[env]
+PORT= '3000'
+DATABASE_URI = '${{MongoDB.MONGO_PUBLIC_URL}}'
+PAYLOAD_SECRET = '${{secret(32)}}'
+PAYLOAD_PUBLIC_SERVER_URL = 'https://${{RAILWAY_PUBLIC_DOMAIN}}'
+NEXT_PUBLIC_SERVER_URL = 'https://${{RAILWAY_PUBLIC_DOMAIN}}'
+NEXT_PUBLIC_IS_LIVE = ''
+PAYLOAD_PUBLIC_DRAFT_SECRET = '${{secret(32)}}'
+NEXT_PRIVATE_DRAFT_SECRET = '${{secret(32)}}'
+REVALIDATION_KEY = '${{secret(32)}}'
+NEXT_PRIVATE_REVALIDATION_KEY = '${{secret(32)}}'
+
 [deploy]
 # region = "europe-west4"
 runtime = "V2"
