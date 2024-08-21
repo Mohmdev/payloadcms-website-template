@@ -6,6 +6,7 @@ CI = 'true'
 NIXPACKS_METADATA = 'node'
 NODE_ENV = 'production'
 NPM_CONFIG_PRODUCTION = 'false'
+PORT= '3000'
 [phases.build]
 dependsOn = ['install']
 cmds = ['npm run build']
