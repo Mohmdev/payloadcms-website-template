@@ -16,7 +16,7 @@ cacheDirectories = [
 
 [phases.install]
 dependsOn = ['setup']
-cmds = ['npm ci']
+cmds = ['npm ci --legacy-peer-deps']
 cacheDirectories = ['/root/.npm']
 paths = ['/app/node_modules/.bin']
 
