@@ -15,6 +15,7 @@
     "lint:fix": "cross-env NODE_OPTIONS=--no-deprecation next lint --fix",
     "payload": "payload",
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
+    "reinstallw": "cross-env NODE_OPTIONS=--no-deprecation rimraf node_modules && rimraf ./pnpm-lock.yaml && pnpm --ignore-workspace install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
@@ -80,5 +81,9 @@
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.0",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
+  },
+  "resolutions": {
+    "@types/react": "types-react@19.0.0-rc.0",
+    "@types/react-dom": "types-react-dom@19.0.0-rc.0"
   }
 }

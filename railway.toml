@@ -1,6 +1,6 @@
 [build]
 builder = "NIXPACKS"
-nixpacksConfigPath = "nixpacks.toml"
+nixpacksConfigPath = "railway.build.npm.toml"
 
 [deploy]
 # region = "europe-west4"
