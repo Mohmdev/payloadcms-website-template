@@ -55,9 +55,9 @@ That's it! Changes made in `./src` will be reflected in your app. Follow the on-
 
 ### Deployment
 
-When you're ready to go live, see the official [Deployment](https://railway.app/template/TTlL69?referralCode=w1FBti) docs for more details.
+When you're ready to go live, see the official [Deployment](https://railway.app/template/7fbyq-?referralCode=w1FBti) docs for more details.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/TTlL69?referralCode=w1FBti)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/7fbyq-?referralCode=w1FBti)
 
 
 ## How it works
@@ -220,9 +220,9 @@ Coming soon.
 
 You can easily deploy an instance of the website template with MongoDB on [Railway](https://railway.app) by clicking the button below:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/TTlL69?referralCode=w1FBti)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/7fbyq-?referralCode=w1FBti)
 
-Visit the [Railway deployment docs](https://railway.app/template/TTlL69?referralCode=w1FBti) for more details.
+Visit the [Railway deployment docs](https://railway.app/template/7fbyq-?referralCode=w1FBti) for more details.
 
 ### Self-hosting
 
