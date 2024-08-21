@@ -2,6 +2,8 @@
 
 This is the official [Payload Website Template](https://github.com/payloadcms/payload/blob/main/templates/website). Use it to power websites, blogs, or portfolios from small to enterprise. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.
 
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/7fbyq-)
+
 This template is right for you if you are working on:
 
 - A personal or enterprise-grade website, blog, or portfolio
@@ -55,9 +57,9 @@ That's it! Changes made in `./src` will be reflected in your app. Follow the on-
 
 ### Deployment
 
-When you're ready to go live, see the official [Deployment](https://railway.app/template/7fbyq-?referralCode=w1FBti) docs for more details.
+When you're ready to go live, see the [template deployment docs](https://railway.app/template/7fbyq-) for more details or click the button below to instantly spin up an instance of this template on Railway.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/7fbyq-?referralCode=w1FBti)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/7fbyq-)
 
 
 ## How it works
@@ -220,9 +222,8 @@ Coming soon.
 
 You can easily deploy an instance of the website template with MongoDB on [Railway](https://railway.app) by clicking the button below:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/7fbyq-?referralCode=w1FBti)
+You can deploy instantly to Rilway by clicking [here](https://railway.app/new/template/7fbyq-) or visting the template [page](https://railway.app/template/7fbyq-) for more details.
 
-Visit the [Railway deployment docs](https://railway.app/template/7fbyq-?referralCode=w1FBti) for more details.
 
 ### Self-hosting
 
