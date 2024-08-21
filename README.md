@@ -53,6 +53,13 @@ Use the `git` CLI to clone this template directly to your machine:
 
 That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
 
+### Deployment
+
+When you're ready to go live, see the official [Deployment](https://railway.app/template/7fbyq-?referralCode=w1FBti) docs for more details.
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/7fbyq-?referralCode=w1FBti)
+
+
 ## How it works
 
 The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
@@ -208,6 +215,14 @@ The easiest way to deploy your project is to use [Payload Cloud](https://payload
 ### Deploying to Vercel
 
 Coming soon.
+
+### Deploying to Railway
+
+You can easily deploy an instance of the website template with MongoDB on [Railway](https://railway.app) by clicking the button below:
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/7fbyq-?referralCode=w1FBti)
+
+Visit the [Railway deployment docs](https://railway.app/template/7fbyq-?referralCode=w1FBti) for more details.
 
 ### Self-hosting
 
