@@ -16,7 +16,7 @@
     "payload": "payload",
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
     "reinstallw": "cross-env NODE_OPTIONS=--no-deprecation rimraf node_modules && rimraf ./pnpm-lock.yaml && pnpm --ignore-workspace install",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3000"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.0.0-beta.84",
