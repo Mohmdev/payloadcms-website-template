@@ -7,19 +7,6 @@ NIXPACKS_METADATA = 'node'
 NODE_ENV = 'production'
 NPM_CONFIG_PRODUCTION = 'false'
 
-[phases.build]
-dependsOn = ['install']
-cmds = ['npm run build']
-cacheDirectories = [
-    '.next/cache',
-    'node_modules/.cache',
-]
-
-[phases.install]
-dependsOn = ['setup']
-cmds = ['npm ci --legacy-peer-deps']
-cacheDirectories = ['/root/.npm']
-paths = ['/app/node_modules/.bin']
 
 [phases.setup]
 nixPkgs = [
@@ -29,6 +16,23 @@ nixPkgs = [
 nixLibs = ['gcc-unwrapped']
 nixOverlays = ['https://github.com/railwayapp/nix-npm-overlay/archive/main.tar.gz']
 nixpkgsArchive = 'e05605ec414618eab4a7a6aea8b38f6fbbcc8f08'
+
+
+[phases.install]
+dependsOn = ['setup']
+cmds = ['npm ci --legacy-peer-deps']
+cacheDirectories = ['/root/.npm']
+paths = ['/app/node_modules/.bin']
+
+
+[phases.build]
+dependsOn = ['install']
+cmds = ['npm run build']
+cacheDirectories = [
+    '.next/cache',
+    'node_modules/.cache',
+]
+
 
 [start]
 cmd = 'npm run start'
