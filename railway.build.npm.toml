@@ -6,6 +6,8 @@ CI = 'true'
 NIXPACKS_METADATA = 'node'
 NODE_ENV = 'production'
 NPM_CONFIG_PRODUCTION = 'false'
+
+[env]
 PORT= '3000'
 DATABASE_URI = '${{MongoDB.MONGO_PUBLIC_URL}}'
 PAYLOAD_SECRET = '${{secret(32)}}'
