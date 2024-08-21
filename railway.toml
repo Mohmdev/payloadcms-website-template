@@ -1,9 +1,9 @@
 [build]
 builder = "NIXPACKS"
-nixpacksConfigPath = "nixpacks.pnpm.toml"
+nixpacksConfigPath = "railway.pnpm.build.toml"
 
 [deploy]
-region = "europe-west4"
+# region = "europe-west4"
 runtime = "V2"
 numReplicas = 1
 restartPolicyType = "ON_FAILURE"
