@@ -1,6 +1,7 @@
-// storage-adapter-import-placeholder
-import { mongooseAdapter } from '@payloadcms/db-mongodb' // database-adapter-import
-// import { postgresAdapter } from '@payloadcms/db-postgres'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+// import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { postgresAdapter } from '@payloadcms/db-postgres'
+// import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
@@ -22,6 +23,7 @@ import { fileURLToPath } from 'url'
 
 import Categories from './payload/collections/Categories'
 import { Media } from './payload/collections/Media'
+// import { MediaWithPrefix } from './payload/collections/MediaWithPrefix'
 import { Pages } from './payload/collections/Pages'
 import { Posts } from './payload/collections/Posts'
 import Users from './payload/collections/Users'
@@ -115,12 +117,14 @@ export default buildConfig({
     },
   }),
   // database-adapter-config-start
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.POSTGRES_URI,
+    },
   }),
-  // db: postgresAdapter({
+  // db: vercelPostgresAdapter({
   //   pool: {
-  //     connectionString: process.env.DATABASE_URI,
+  //     connectionString: process.env.POSTGRES_URL,
   //   },
   // }),
   // database-adapter-config-end
@@ -138,6 +142,14 @@ export default buildConfig({
   ],
   globals: [Header, Footer],
   plugins: [
+    vercelBlobStorage({
+      enabled: true, // Optional, defaults to true
+      // Specify which collections should use Vercel Blob
+      collections: {
+        [Media.slug]: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
     redirectsPlugin({
       collections: ['pages', 'posts'],
       overrides: {
