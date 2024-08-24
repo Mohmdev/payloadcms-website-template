@@ -61,7 +61,6 @@ When you're ready to go live, see the [template deployment docs](https://railway
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/7fbyq-)
 
-
 ## How it works
 
 The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
@@ -223,7 +222,6 @@ Coming soon.
 You can easily deploy an instance of the website template with MongoDB on [Railway](https://railway.app) by clicking the button below:
 
 You can deploy instantly to Rilway by clicking [here](https://railway.app/new/template/7fbyq-) or visting the template [page](https://railway.app/template/7fbyq-) for more details.
-
 
 ### Self-hosting
 
