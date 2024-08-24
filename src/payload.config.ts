@@ -1,5 +1,5 @@
-// import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { s3Storage } from '@payloadcms/storage-s3'
+// import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
@@ -146,19 +146,19 @@ export default buildConfig({
       acl: 'private',
       collections: {
         [Media.slug]: true,
-        // [mediaWithPrefixSlug]: {
-        //   prefix,
+        // [MediaWithPrefix.slug]: {
+        //   prefix: 'media',
         // },
       },
       bucket: process.env.S3_BUCKET,
       config: {
         endpoint: process.env.S3_ENDPOINT,
         forcePathStyle: true,
+        region: 'us-east-1', // Dummy region to avoid error
         credentials: {
           accessKeyId: process.env.S3_ACCESS_KEY_ID,
           secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
         },
-        // ... Other S3 configuration
       },
     }),
     // vercelBlobStorage({
