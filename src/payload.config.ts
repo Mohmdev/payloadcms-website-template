@@ -1,4 +1,5 @@
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+// import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { s3Storage } from '@payloadcms/storage-s3'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
@@ -140,14 +141,33 @@ export default buildConfig({
   ],
   globals: [Header, Footer],
   plugins: [
-    vercelBlobStorage({
-      enabled: true, // Optional, defaults to true
-      // Specify which collections should use Vercel Blob
+    s3Storage({
+      disableLocalStorage: true,
+      acl: 'private',
       collections: {
         [Media.slug]: true,
+        // [mediaWithPrefixSlug]: {
+        //   prefix,
+        // },
       },
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+      bucket: process.env.S3_BUCKET,
+      config: {
+        endpoint: process.env.S3_ENDPOINT,
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID,
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+        },
+        // ... Other S3 configuration
+      },
     }),
+    // vercelBlobStorage({
+    //   enabled: true, // Optional, defaults to true
+    //   // Specify which collections should use Vercel Blob
+    //   collections: {
+    //     [Media.slug]: true,
+    //   },
+    //   token: process.env.BLOB_READ_WRITE_TOKEN,
+    // }),
     redirectsPlugin({
       collections: ['pages', 'posts'],
       overrides: {
