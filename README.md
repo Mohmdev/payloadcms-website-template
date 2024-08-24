@@ -2,6 +2,8 @@
 
 This is the official [Payload Website Template](https://github.com/payloadcms/payload/blob/main/templates/website). Use it to power websites, blogs, or portfolios from small to enterprise. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.
 
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/7fbyq-)
+
 This template is right for you if you are working on:
 
 - A personal or enterprise-grade website, blog, or portfolio
@@ -52,6 +54,12 @@ Use the `git` CLI to clone this template directly to your machine:
 1. open `http://localhost:3000` to open the app in your browser
 
 That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+
+### Deployment
+
+When you're ready to go live, see the [template deployment docs](https://railway.app/template/7fbyq-) for more details or click the button below to instantly spin up an instance of this template on Railway.
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/7fbyq-)
 
 ## How it works
 
@@ -208,6 +216,12 @@ The easiest way to deploy your project is to use [Payload Cloud](https://payload
 ### Deploying to Vercel
 
 Coming soon.
+
+### Deploying to Railway
+
+You can easily deploy an instance of the website template with MongoDB on [Railway](https://railway.app) by clicking the button below:
+
+You can deploy instantly to Rilway by clicking [here](https://railway.app/new/template/7fbyq-) or visting the template [page](https://railway.app/template/7fbyq-) for more details.
 
 ### Self-hosting
 
