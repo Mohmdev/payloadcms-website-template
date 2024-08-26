@@ -158,7 +158,7 @@ export default buildConfig({
       bucket: process.env.S3_BUCKET,
       config: {
         endpoint: process.env.S3_ENDPOINT,
-        forcePathStyle: true,
+        forcePathStyle: false,
         region: 'us-east-1', // Dummy region to avoid error
         credentials: {
           accessKeyId: process.env.S3_ACCESS_KEY,
