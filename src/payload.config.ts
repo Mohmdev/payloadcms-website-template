@@ -144,11 +144,16 @@ export default buildConfig({
     s3Storage({
       disableLocalStorage: true,
       acl: 'private',
+      // collections: {
+      //   [Media.slug]: true,
+      //   // [MediaWithPrefix.slug]: {
+      //   //   prefix: 'media',
+      //   // },
+      // },
       collections: {
-        [Media.slug]: true,
-        // [MediaWithPrefix.slug]: {
-        //   prefix: 'media',
-        // },
+        Media: {
+          prefix: 'media',
+        },
       },
       bucket: process.env.S3_BUCKET,
       config: {
@@ -156,8 +161,8 @@ export default buildConfig({
         forcePathStyle: true,
         region: 'us-east-1', // Dummy region to avoid error
         credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY_ID,
-          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+          accessKeyId: process.env.S3_ACCESS_KEY,
+          secretAccessKey: process.env.S3_SECRET_KEY,
         },
       },
     }),
