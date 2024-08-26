@@ -22,7 +22,7 @@ import { fileURLToPath } from 'url'
 
 import Categories from './payload/collections/Categories'
 import { Media } from './payload/collections/Media'
-// import { MediaWithPrefix } from './payload/collections/MediaWithPrefix'
+import { MediaWithPrefix } from './payload/collections/MediaWithPrefix'
 import { Pages } from './payload/collections/Pages'
 import { Posts } from './payload/collections/Posts'
 import Users from './payload/collections/Users'
@@ -144,21 +144,16 @@ export default buildConfig({
     s3Storage({
       disableLocalStorage: true,
       acl: 'private',
-      // collections: {
-      //   [Media.slug]: true,
-      //   // [MediaWithPrefix.slug]: {
-      //   //   prefix: 'media',
-      //   // },
-      // },
       collections: {
-        Media: {
+        // [Media.slug]: true,
+        [MediaWithPrefix.slug]: {
           prefix: 'media',
         },
       },
       bucket: process.env.S3_BUCKET,
       config: {
         endpoint: process.env.S3_ENDPOINT,
-        forcePathStyle: false,
+        forcePathStyle: true,
         region: 'us-east-1', // Dummy region to avoid error
         credentials: {
           accessKeyId: process.env.S3_ACCESS_KEY,
