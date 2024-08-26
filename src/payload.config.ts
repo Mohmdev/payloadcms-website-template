@@ -145,7 +145,7 @@ export default buildConfig({
       disableLocalStorage: true,
       acl: 'private',
       collections: {
-        // [Media.slug]: true,
+        [Media.slug]: true,
         [MediaWithPrefix.slug]: {
           prefix: 'media',
         },
