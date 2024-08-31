@@ -1,5 +1,5 @@
 {
-  "id": "c80407e8-3914-4bc7-8931-985df210319a",
+  "id": "7a8382e7-59dc-4a9f-86af-a27c1fe73ce7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -3557,6 +3557,13 @@
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
+        },
+        "prefix": {
+          "name": "prefix",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'media'"
         },
         "updated_at": {
           "name": "updated_at",

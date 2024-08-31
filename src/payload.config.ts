@@ -22,7 +22,7 @@ import { fileURLToPath } from 'url'
 
 import Categories from './collections/Categories'
 import { Media } from './collections/Media'
-import { MediaWithPrefix } from './collections/MediaWithPrefix'
+// import { MediaWithPrefix } from './collections/MediaWithPrefix'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import Users from './collections/Users'
@@ -138,8 +138,11 @@ export default buildConfig({
   plugins: [
     s3Storage({
       collections: {
-        [Media.slug]: true,
-        [MediaWithPrefix.slug]: {
+        // [Media.slug]: true,
+        // [MediaWithPrefix.slug]: {
+        //   prefix: 'media',
+        // },
+        media: {
           prefix: 'media',
         },
       },
