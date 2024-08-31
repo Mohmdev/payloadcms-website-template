@@ -508,22 +508,6 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
   	"focal_y" numeric
   );
   
-  CREATE TABLE IF NOT EXISTS "media_with_prefix" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"prefix" varchar DEFAULT 'media',
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"url" varchar,
-  	"thumbnail_u_r_l" varchar,
-  	"filename" varchar,
-  	"mime_type" varchar,
-  	"filesize" numeric,
-  	"width" numeric,
-  	"height" numeric,
-  	"focal_x" numeric,
-  	"focal_y" numeric
-  );
-  
   CREATE TABLE IF NOT EXISTS "categories_breadcrumbs" (
   	"_order" integer NOT NULL,
   	"_parent_id" integer NOT NULL,
@@ -1320,8 +1304,6 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "_posts_v_rels_path_idx" ON "_posts_v_rels" USING btree ("path");
   CREATE INDEX IF NOT EXISTS "media_created_at_idx" ON "media" USING btree ("created_at");
   CREATE UNIQUE INDEX IF NOT EXISTS "media_filename_idx" ON "media" USING btree ("filename");
-  CREATE INDEX IF NOT EXISTS "media_with_prefix_created_at_idx" ON "media_with_prefix" USING btree ("created_at");
-  CREATE UNIQUE INDEX IF NOT EXISTS "media_with_prefix_filename_idx" ON "media_with_prefix" USING btree ("filename");
   CREATE INDEX IF NOT EXISTS "categories_breadcrumbs_order_idx" ON "categories_breadcrumbs" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "categories_breadcrumbs_parent_id_idx" ON "categories_breadcrumbs" USING btree ("_parent_id");
   CREATE INDEX IF NOT EXISTS "categories_created_at_idx" ON "categories" USING btree ("created_at");
@@ -1414,7 +1396,6 @@ export async function down({ payload, req }: MigrateDownArgs): Promise<void> {
   DROP TABLE "_posts_v";
   DROP TABLE "_posts_v_rels";
   DROP TABLE "media";
-  DROP TABLE "media_with_prefix";
   DROP TABLE "categories_breadcrumbs";
   DROP TABLE "categories";
   DROP TABLE "users";

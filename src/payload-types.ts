@@ -14,7 +14,6 @@ export interface Config {
     pages: Page;
     posts: Post;
     media: Media;
-    'media-with-prefix': MediaWithPrefix;
     categories: Category;
     users: User;
     redirects: Redirect;
@@ -538,25 +537,6 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media-with-prefix".
- */
-export interface MediaWithPrefix {
-  id: number;
-  prefix?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

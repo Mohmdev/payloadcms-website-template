@@ -122,7 +122,7 @@ export default buildConfig({
     },
   }),
   // database-adapter-config-end
-  collections: [Pages, Posts, Media, MediaWithPrefix, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Users],
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   endpoints: [
@@ -145,14 +145,14 @@ export default buildConfig({
       },
       disableLocalStorage: true,
       acl: 'private',
-      bucket: process.env.S3_BUCKET || '',
+      bucket: process.env.S3_BUCKET as string,
       config: {
-        endpoint: process.env.S3_ENDPOINT || '',
+        endpoint: process.env.S3_ENDPOINT,
         forcePathStyle: true,
         region: 'us-east-1', // Dummy region to avoid error
         credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY || '',
-          secretAccessKey: process.env.S3_SECRET_KEY || '',
+          accessKeyId: process.env.S3_ACCESS_KEY as string,
+          secretAccessKey: process.env.S3_SECRET_KEY as string,
         },
       },
     }),
