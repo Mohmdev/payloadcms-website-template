@@ -6,6 +6,7 @@ import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
+import { searchPlugin } from '@payloadcms/plugin-search'
 import {
   BoldFeature,
   FixedToolbarFeature,
@@ -162,6 +163,13 @@ export default buildConfig({
     //   },
     //   token: process.env.BLOB_READ_WRITE_TOKEN,
     // }),
+    searchPlugin({
+      collections: ['pages', 'posts'],
+      defaultPriorities: {
+        pages: 10,
+        posts: 20,
+      },
+    }),
     redirectsPlugin({
       collections: ['pages', 'posts'],
       overrides: {
