@@ -1,0 +1,18 @@
+modules = ["web", "nodejs-22"]
+run = "pnpm run dev"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = "pnpm start"
+build = "pnpm build"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[[ports]]
+localPort = 38733
+externalPort = 3000
+exposeLocalhost = true

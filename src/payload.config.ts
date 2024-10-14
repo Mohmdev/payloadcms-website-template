@@ -6,6 +6,7 @@ import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
+import { searchPlugin } from '@payloadcms/plugin-search'
 import {
   BoldFeature,
   FixedToolbarFeature,
@@ -32,6 +33,9 @@ import { revalidateRedirects } from './hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { Page, Post } from 'src/payload-types'
 
+import { searchFields } from '@/search/fieldOverrides'
+import { beforeSyncWithSearch } from '@/search/beforeSync'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -47,6 +51,7 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
 
 export default buildConfig({
   admin: {
+    avatar: 'gravatar',
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
@@ -117,7 +122,7 @@ export default buildConfig({
   // database-adapter-config-start
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.POSTGRES_URI,
+      connectionString: process.env.POSTGRES_URI!,
     },
   }),
   // database-adapter-config-end
@@ -162,6 +167,15 @@ export default buildConfig({
     //   },
     //   token: process.env.BLOB_READ_WRITE_TOKEN,
     // }),
+    searchPlugin({
+      collections: ['posts'],
+      beforeSync: beforeSyncWithSearch,
+      searchOverrides: {
+        fields: ({ defaultFields }) => {
+          return [...defaultFields, ...searchFields]
+        },
+      },
+    }),
     redirectsPlugin({
       collections: ['pages', 'posts'],
       overrides: {
