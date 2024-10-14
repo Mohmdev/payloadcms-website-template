@@ -1,13 +1,15 @@
 ![Payload 3 Website Template](https://res.cloudinary.com/mohmdevcloud/image/upload/v1724658562/payload_hero_ssoo3j_pc1rjw.png)
 
-<a href="https://payloadcms.mohmdev.com" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+<a style="text-decoration: none;" rel="noopener noreferrer" href="https://payloadcms.mohmdev.com">
   <span style="display: inline-flex; align-items: center; margin-bottom: 1em;">
-    <img src="https://res.cloudinary.com/mohmdevcloud/image/upload/v1724659948/globe_favicon_o6us0b.svg" alt="https://payloadcms.mohmdev.com" style="width: 1.5em; height: 1.5em; padding-right: 0.5em; filter: invert(50%) sepia(20%) saturate(500%) hue-rotate(180deg); vertical-align: middle;">
-    <span style="color: rgb(135, 133, 147); font-weight: 500; font-size: 1.125em;">Live Demo ↗</span>
+    <img style="width: 1.5em; height: 1.5em; padding-right: 0.5em; filter: invert(50%) sepia(20%) saturate(500%) hue-rotate(180deg); vertical-align: middle;" alt="https://payloadcms.mohmdev.com" src="https://res.cloudinary.com/mohmdevcloud/image/upload/v1724659948/globe_favicon_o6us0b.svg">
+    <span style="color: rgb(135, 133, 147); font-weight: 500; font-size: 1.125em;">Live Demo </span>
   </span>
 </a>
 
-[Payload 3-beta.91](https://github.com/payloadcms/payload/releases/tag/v3.0.0-beta.91) transforms Next.js into a complete full-stack framework. By integrating a headless CMS natively into the Next.js environment, it creates a cohesive development experience, much like WordPress did for PHP, but with cutting-edge technology.
+[Payload 3-beta.113](https://github.com/payloadcms/payload/releases/tag/v3.0.0-beta.113) transforms Next.js into a complete full-stack framework. By integrating a headless CMS natively into the Next.js environment, it creates a cohesive development experience, much like WordPress did for PHP, but with cutting-edge technology.
+
+> **⚠️ Warning:** This template is regularly updated to align with the official releases from the Payload team. Consequently, new updates may introduce breaking changes that could impact the database schema. Users of this template may need to reset their database and execute the new migrations to update the schema accordingly.
 
 ### This template is ideal if you are working on:
 
