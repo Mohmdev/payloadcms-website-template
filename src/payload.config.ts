@@ -33,6 +33,9 @@ import { revalidateRedirects } from './hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { Page, Post } from 'src/payload-types'
 
+import { searchFields } from '@/search/fieldOverrides'
+import { beforeSyncWithSearch } from '@/search/beforeSync'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -119,7 +122,7 @@ export default buildConfig({
   // database-adapter-config-start
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.POSTGRES_URI,
+      connectionString: process.env.POSTGRES_URI!,
     },
   }),
   // database-adapter-config-end
@@ -165,10 +168,12 @@ export default buildConfig({
     //   token: process.env.BLOB_READ_WRITE_TOKEN,
     // }),
     searchPlugin({
-      collections: ['pages', 'posts'],
-      defaultPriorities: {
-        pages: 10,
-        posts: 20,
+      collections: ['posts'],
+      beforeSync: beforeSyncWithSearch,
+      searchOverrides: {
+        fields: ({ defaultFields }) => {
+          return [...defaultFields, ...searchFields]
+        },
       },
     }),
     redirectsPlugin({

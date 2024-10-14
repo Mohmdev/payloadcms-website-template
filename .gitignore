@@ -3,6 +3,7 @@ dist / media
 node_modules
 .DS_Store
 .env
+.env.temp
 .env.local
 .env.development
 .env.development.local
