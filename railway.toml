@@ -3,7 +3,7 @@ builder = "NIXPACKS"
 nixpacksConfigPath = "railway.build.toml"
 
 [deploy]
-region = "us-west1"
+# region = "us-west1"
 runtime = "V2"
 numReplicas = 1
 # healthcheckPath = "/health"
