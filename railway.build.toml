@@ -1,12 +1,11 @@
 providers = ['node']
-buildImage = 'ghcr.io/railwayapp/nixpacks:ubuntu-1727136237'
+buildImage = 'ghcr.io/railwayapp/nixpacks:ubuntu-1731369831'
 
 [variables]
 CI = 'true'
 NIXPACKS_METADATA = 'node'
-NPM_CONFIG_PRODUCTION = 'false'
 NODE_ENV = 'production'
-PORT = '8080'
+NPM_CONFIG_PRODUCTION = 'false'
 
 
 [phases.setup]
@@ -27,7 +26,7 @@ paths = ['/app/node_modules/.bin']
 
 [phases.build]
 dependsOn = ['install']
-cmds = ['cross-env NODE_OPTIONS=--no-deprecation next build']
+cmd = 'cross-env NODE_OPTIONS=--no-deprecation next build'
 cacheDirectories = ['.next/cache', 'node_modules/.cache']
 
 

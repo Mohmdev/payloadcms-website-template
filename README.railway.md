@@ -7,7 +7,7 @@
   </span>
 </a>
 
-[Payload 3-beta.113](https://github.com/payloadcms/payload/releases/tag/v3.0.0-beta.113) transforms Next.js into a complete full-stack framework. By integrating a headless CMS natively into the Next.js environment, it creates a cohesive development experience, much like WordPress did for PHP, but with cutting-edge technology.
+[Payload 3](https://github.com/payloadcms/payload) transforms Next.js into a complete full-stack framework. By integrating a headless CMS natively into the Next.js environment, it creates a cohesive development experience, much like WordPress did for PHP, but with cutting-edge technology.
 
 > **⚠️ Warning:** This template is regularly updated to align with the official releases from the Payload team. Consequently, new updates may introduce breaking changes that could impact the database schema. Users of this template may need to reset their database and execute the new migrations to update the schema accordingly.
 
