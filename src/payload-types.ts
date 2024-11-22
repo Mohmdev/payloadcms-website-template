@@ -304,7 +304,6 @@ export interface ContentBlock {
  * via the `definition` "MediaBlock".
  */
 export interface MediaBlock {
-  position?: ('default' | 'fullscreen') | null;
   media: number | Media;
   id?: string | null;
   blockName?: string | null;
@@ -847,7 +846,6 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?:
           | T
           | {
-              position?: T;
               media?: T;
               id?: T;
               blockName?: T;

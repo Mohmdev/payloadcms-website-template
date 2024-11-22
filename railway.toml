@@ -1,5 +1,6 @@
 [build]
 builder = "NIXPACKS"
+# buildEnvironment = "V2"
 nixpacksConfigPath = "railway.build.toml"
 
 [deploy]
