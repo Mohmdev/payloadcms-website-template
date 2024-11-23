@@ -2,7 +2,6 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig } from 'payload'
-import { migrations } from './migrations'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
@@ -62,7 +61,7 @@ export default buildConfig({
   // database-adapter-config-start
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.POSTGRES_URI!,
+      connectionString: process.env.POSTGRES_URI,
     },
     // prodMigrations: migrations,
   }),
