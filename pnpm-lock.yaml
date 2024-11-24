@@ -117,6 +117,9 @@ importers:
       '@payloadcms/eslint-config':
         specifier: ^1.1.1
         version: 1.1.1(typescript@5.7.2)
+      '@payloadcms/graphql':
+        specifier: ^3.1.0
+        version: 3.1.0(graphql@16.9.0)(payload@3.1.0(graphql@16.9.0)(monaco-editor@0.52.0)(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)(typescript@5.7.2))(typescript@5.7.2)
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.15(tailwindcss@3.4.15)

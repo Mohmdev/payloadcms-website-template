@@ -22,12 +22,43 @@ export default buildConfig({
   admin: {
     avatar: 'gravatar',
     components: {
-      // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
+      // Renders a message that you see while logging into your admin panel.
       beforeLogin: ['@/components/BeforeLogin'],
-      // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
+      // Renders the 'welcome' block that you see after logging into your admin panel.
       beforeDashboard: ['@/components/BeforeDashboard'],
+      graphics: {
+        // Image component to be displayed as the logo on the Sign Up / Login view.
+        Logo: '/graphics/Logo/index.tsx#Logo',
+        // Image component displayed above the Nav in the admin panel
+        // often a condensed version of a full logo.
+        Icon: '/graphics/Icon/index.tsx#Icon',
+      },
+    },
+    meta: {
+      description: 'This is a custom meta description',
+      // Images that will be displayed as the tab icon.
+      icons: [
+        {
+          type: 'image/png',
+          rel: 'icon',
+          url: '/assets/favicon.svg',
+        },
+      ],
+      // Images that will appear in the preview when...
+      // you share links to your admin panel online and through social media.
+      openGraph: {
+        description: 'This is a custom OG description',
+        images: [
+          {
+            height: 600,
+            url: '/assets/ogImage.png',
+            width: 800,
+          },
+        ],
+        title: 'This is a custom OG title',
+      },
+      // Text that appends the meta/page title displayed in the browser tab.
+      titleSuffix: '- Your App Name',
     },
     importMap: {
       baseDir: path.resolve(dirname),
@@ -56,16 +87,17 @@ export default buildConfig({
       ],
     },
   },
-  // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
-  // database-adapter-config-start
   db: postgresAdapter({
     pool: {
       connectionString: process.env.POSTGRES_URI,
     },
     // prodMigrations: migrations,
   }),
-  // database-adapter-config-end
+
+  graphQL: {
+    schemaOutputFile: path.resolve(dirname, 'generated-schema.graphql'),
+  },
   collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
