@@ -5,11 +5,14 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
-import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
-import { Settings } from './Settings/config'
+import { Media } from './collections/Media/Media'
+import { Assets } from './collections/Media/Assets'
+import { SiteInfo } from './Settings/config.SiteInfo'
+import { ContactInfo } from './Settings/config.ContactInfo'
+import { SiteGraphics } from './Settings/config.SiteGraphics'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -29,7 +32,7 @@ export default buildConfig({
       beforeDashboard: ['@/components/BeforeDashboard'],
       graphics: {
         // Image component to be displayed as the logo on the Sign Up / Login view.
-        Logo: '/graphics/Logo/index.tsx#Logo',
+        Logo: '/Settings/components/SiteLogo/index.tsx#SiteLogo',
         // Image component displayed above the Nav in the admin panel
         // often a condensed version of a full logo.
         Icon: '/graphics/Icon/index.tsx#Icon',
@@ -99,9 +102,24 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: path.resolve(dirname, 'generated-schema.graphql'),
   },
-  collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer, Settings],
+  collections: [
+    //
+    Pages,
+    Posts,
+    Categories,
+    Users,
+    Media,
+    Assets,
+  ],
+  globals: [
+    //
+    SiteInfo,
+    SiteGraphics,
+    Header,
+    Footer,
+    ContactInfo,
+  ],
   plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET,
   sharp,

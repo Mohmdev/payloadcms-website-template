@@ -9,13 +9,13 @@ import { Nav } from './Nav'
 import { SiteLogo } from '@/Settings/components/SiteLogo'
 import { cn } from '@/utilities/cn'
 
-interface HeaderClientProps {
+interface NavbarClientProps {
   header: Header
   siteLogoUrl?: string
   className?: string
 }
 
-export const HeaderClient: React.FC<HeaderClientProps> = ({ header, siteLogoUrl, className }) => {
+export const NavbarClient: React.FC<NavbarClientProps> = ({ header, siteLogoUrl, className }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()

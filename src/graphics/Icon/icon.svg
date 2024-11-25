@@ -21,8 +21,8 @@
     }
   </style>
   <rect
-    class="bg"
-    fill="#0C0C0C"
+    class="bg "
+    fill="red"
     height="434"
     transform="translate(0 0.154785)"
     width="430"

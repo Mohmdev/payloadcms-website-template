@@ -13,9 +13,10 @@ export interface Config {
   collections: {
     pages: Page;
     posts: Post;
-    media: Media;
     categories: Category;
     users: User;
+    media: Media;
+    assets: Asset;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -28,9 +29,10 @@ export interface Config {
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    assets: AssetsSelect<false> | AssetsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -43,14 +45,18 @@ export interface Config {
     defaultIDType: number;
   };
   globals: {
+    'site-info': SiteInfo;
+    graphics: Graphic;
     header: Header;
     footer: Footer;
-    settings: Setting;
+    'contact-information': ContactInformation;
   };
   globalsSelect: {
+    'site-info': SiteInfoSelect<false> | SiteInfoSelect<true>;
+    graphics: GraphicsSelect<false> | GraphicsSelect<true>;
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
-    settings: SettingsSelect<false> | SettingsSelect<true>;
+    'contact-information': ContactInformationSelect<false> | ContactInformationSelect<true>;
   };
   locale: null;
   user: User & {
@@ -617,6 +623,77 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "assets".
+ */
+export interface Asset {
+  id: number;
+  alt?: string | null;
+  caption?: string | null;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    square?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    small?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    medium?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    large?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    xlarge?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -699,16 +776,20 @@ export interface PayloadLockedDocument {
         value: number | Post;
       } | null)
     | ({
-        relationTo: 'media';
-        value: number | Media;
-      } | null)
-    | ({
         relationTo: 'categories';
         value: number | Category;
       } | null)
     | ({
         relationTo: 'users';
         value: number | User;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'assets';
+        value: number | Asset;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -877,11 +958,9 @@ export interface PagesSelect<T extends boolean = true> {
   meta?:
     | T
     | {
-        overview?: T;
         title?: T;
         image?: T;
         description?: T;
-        preview?: T;
       };
   publishedAt?: T;
   slug?: T;
@@ -902,11 +981,9 @@ export interface PostsSelect<T extends boolean = true> {
   meta?:
     | T
     | {
-        overview?: T;
         title?: T;
         image?: T;
         description?: T;
-        preview?: T;
       };
   publishedAt?: T;
   authors?: T;
@@ -921,6 +998,40 @@ export interface PostsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  title?: T;
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1008,37 +1119,87 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
+ * via the `definition` "assets_select".
  */
-export interface CategoriesSelect<T extends boolean = true> {
-  title?: T;
-  parent?: T;
-  breadcrumbs?:
+export interface AssetsSelect<T extends boolean = true> {
+  alt?: T;
+  caption?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
     | T
     | {
-        doc?: T;
-        url?: T;
-        label?: T;
-        id?: T;
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        square?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        small?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        medium?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        large?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xlarge?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
       };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users_select".
- */
-export interface UsersSelect<T extends boolean = true> {
-  name?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  email?: T;
-  resetPasswordToken?: T;
-  resetPasswordExpiration?: T;
-  salt?: T;
-  hash?: T;
-  loginAttempts?: T;
-  lockUntil?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1212,7 +1373,6 @@ export interface SearchSelect<T extends boolean = true> {
   title?: T;
   priority?: T;
   doc?: T;
-  docUrl?: T;
   slug?: T;
   meta?:
     | T
@@ -1265,6 +1425,28 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-info".
+ */
+export interface SiteInfo {
+  id: number;
+  siteName?: string | null;
+  siteDescription?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "graphics".
+ */
+export interface Graphic {
+  id: number;
+  siteLogo?: (number | null) | Asset;
+  favicon?: (number | null) | Asset;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header".
  */
 export interface Header {
@@ -1313,20 +1495,15 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "settings".
+ * via the `definition` "contact-information".
  */
-export interface Setting {
+export interface ContactInformation {
   id: number;
-  siteName?: string | null;
-  siteDescription?: string | null;
-  siteLogo?: (number | null) | Media;
-  favicon?: (number | null) | Media;
-  contact?: {
-    email?: string | null;
-    phone?: string | null;
-    address?: string | null;
-  };
-  social?: {
+  contactName?: string | null;
+  contactEmail?: string | null;
+  contactPhone?: string | null;
+  contactAddress?: string | null;
+  socialMedia?: {
     facebook?: string | null;
     twitter?: string | null;
     instagram?: string | null;
@@ -1337,6 +1514,28 @@ export interface Setting {
   };
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-info_select".
+ */
+export interface SiteInfoSelect<T extends boolean = true> {
+  siteName?: T;
+  siteDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "graphics_select".
+ */
+export interface GraphicsSelect<T extends boolean = true> {
+  siteLogo?: T;
+  favicon?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1386,21 +1585,14 @@ export interface FooterSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "settings_select".
+ * via the `definition` "contact-information_select".
  */
-export interface SettingsSelect<T extends boolean = true> {
-  siteName?: T;
-  siteDescription?: T;
-  siteLogo?: T;
-  favicon?: T;
-  contact?:
-    | T
-    | {
-        email?: T;
-        phone?: T;
-        address?: T;
-      };
-  social?:
+export interface ContactInformationSelect<T extends boolean = true> {
+  contactName?: T;
+  contactEmail?: T;
+  contactPhone?: T;
+  contactAddress?: T;
+  socialMedia?:
     | T
     | {
         facebook?: T;

@@ -31,9 +31,13 @@ export const plugins: Plugin[] = [
     collections: {
       media: {
         prefix: 'media',
+        disableLocalStorage: true,
+      },
+      assets: {
+        prefix: 'assets',
+        disableLocalStorage: true,
       },
     },
-    disableLocalStorage: true,
     acl: 'private',
     bucket: process.env.S3_BUCKET as string,
     config: {

@@ -8,7 +8,7 @@ import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
 import { SearchIcon } from 'lucide-react'
 
-export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
+export const Nav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const navItems = header?.navItems || []
 
   return (

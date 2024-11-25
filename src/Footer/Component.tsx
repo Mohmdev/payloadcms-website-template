@@ -7,14 +7,15 @@ import type { Footer } from '@/payload-types'
 import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
 import { Logo } from '@/components/Logo/Logo'
+import { cn } from '@/utilities/cn'
 
-export async function Footer() {
+export async function Footer({ className }: { className?: string }) {
   const footer: Footer = await getCachedGlobal('footer', 1)()
 
   const navItems = footer?.navItems || []
 
   return (
-    <footer className="border-t border-border bg-black dark:bg-card text-white">
+    <footer className={cn('border-t border-border bg-black dark:bg-card text-white', className)}>
       <div className="container py-8 gap-8 flex flex-col md:flex-row md:justify-between">
         <Link className="flex items-center" href="/">
           <Logo />

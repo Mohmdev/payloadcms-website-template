@@ -4,7 +4,11 @@ import { link } from '@/fields/link'
 import { revalidateFooter } from './hooks/revalidateFooter'
 
 export const Footer: GlobalConfig = {
+  admin: {
+    group: 'Settings',
+  },
   slug: 'footer',
+  label: 'Footer Navigation',
   access: {
     read: () => true,
   },

@@ -7,7 +7,7 @@ import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
-import { Header } from '@/Header/Component'
+import { Navbar } from '@/Header/Navbar.server'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
@@ -15,40 +15,47 @@ import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 
 import { getServerSideURL } from '@/utilities/getURL'
-import { DynamicFavicon } from '@/Settings/Favicon'
+import { DynamicFavicon } from '@/Settings/components/Favicon'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 
-import type { Setting } from '@/payload-types'
+// import type { GraphicsSelect } from '@/payload-types'
 
 import './globals.css'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
-  const settingsData: Setting = await getCachedGlobal('settings', 1)()
-  const faviconUrl =
-    settingsData.favicon && typeof settingsData.favicon === 'object' && settingsData.favicon.url
-      ? settingsData.favicon.url
-      : undefined
+  // const settingsData: Setting = await getCachedGlobal('settings', 1)()
+  // const faviconUrl =
+  //   settingsData.favicon && typeof settingsData.favicon === 'object' && settingsData.favicon.url
+  //     ? settingsData.favicon.url
+  //     : undefined
 
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
       <head>
         <InitTheme />
-        <DynamicFavicon faviconUrl={faviconUrl} />
+        <DynamicFavicon
+        //  faviconUrl={faviconUrl}
+        />
       </head>
       <body>
         <Providers>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
           <LivePreviewListener />
-
-          <Header />
-          {children}
-          <Footer />
+          <div
+            className={cn(
+              'min-h-[100vh]', // fallback
+              'grid grid-rows-[auto_1fr_auto]',
+            )}
+            style={{ minHeight: '100dvh' }}
+          >
+            <header className="h-max">
+              <AdminBar adminBarProps={{ preview: isEnabled }} />
+              <Navbar />
+            </header>
+            <main>{children}</main>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>
