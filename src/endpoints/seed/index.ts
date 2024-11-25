@@ -46,6 +46,7 @@ export const seed = async ({
     await payload.updateGlobal({
       slug: global,
       data: {
+        // @ts-expect-error
         navItems: [],
       },
     })

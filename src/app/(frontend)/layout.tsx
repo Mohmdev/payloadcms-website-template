@@ -14,18 +14,28 @@ import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 
-import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import { DynamicFavicon } from '@/Settings/Favicon'
+import { getCachedGlobal } from '@/utilities/getGlobals'
+
+import type { Setting } from '@/payload-types'
+
+import './globals.css'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
+
+  const settingsData: Setting = await getCachedGlobal('settings', 1)()
+  const faviconUrl =
+    settingsData.favicon && typeof settingsData.favicon === 'object' && settingsData.favicon.url
+      ? settingsData.favicon.url
+      : undefined
 
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
       <head>
         <InitTheme />
-        <link href="/favicon.ico" rel="icon" sizes="32x32" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <DynamicFavicon faviconUrl={faviconUrl} />
       </head>
       <body>
         <Providers>

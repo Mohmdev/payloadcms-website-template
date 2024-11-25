@@ -9,8 +9,8 @@
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbopack -p 3000",
-    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev --turbopack -p 3000",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 3000",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev -p 3000",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "lint:fix": "cross-env NODE_OPTIONS=--no-deprecation next lint --fix",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
@@ -19,6 +19,7 @@
     "generate:types": "payload generate:types",
     "migrate": "payload migrate",
     "migrate:status": "payload migrate:status",
+    "migrate:down": "payload migrate:down",
     "migrate:reset": "payload migrate:reset",
     "migrate:fresh": "payload migrate:fresh",
     "migrate:create": "payload migrate:create"
