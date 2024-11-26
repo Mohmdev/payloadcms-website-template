@@ -18,26 +18,22 @@ import { getServerSideURL } from '@/utilities/getURL'
 import { DynamicFavicon } from '@/Settings/components/Favicon'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 
-// import type { GraphicsSelect } from '@/payload-types'
+import type { Graphic } from '@/payload-types'
 
 import './globals.css'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
-  // const settingsData: Setting = await getCachedGlobal('settings', 1)()
-  // const faviconUrl =
-  //   settingsData.favicon && typeof settingsData.favicon === 'object' && settingsData.favicon.url
-  //     ? settingsData.favicon.url
-  //     : undefined
+  const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
+  const faviconUrl =
+    typeof graphics?.favicon === 'object' ? (graphics?.favicon?.url ?? undefined) : undefined
 
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
       <head>
         <InitTheme />
-        <DynamicFavicon
-        //  faviconUrl={faviconUrl}
-        />
+        <DynamicFavicon faviconUrl={faviconUrl} />
       </head>
       <body>
         <Providers>

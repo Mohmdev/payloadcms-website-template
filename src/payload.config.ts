@@ -32,10 +32,11 @@ export default buildConfig({
       beforeDashboard: ['@/components/BeforeDashboard'],
       graphics: {
         // Image component to be displayed as the logo on the Sign Up / Login view.
-        Logo: '/Settings/components/SiteLogo/index.tsx#SiteLogo',
+        Logo: '/Settings/components/SiteLogo/admin.tsx#AdminLogo',
         // Image component displayed above the Nav in the admin panel
         // often a condensed version of a full logo.
-        Icon: '/graphics/Icon/index.tsx#Icon',
+        // Icon: '/graphics/Icon/index.tsx#Icon',
+        Icon: '/Settings/components/Favicon/admin.tsx#AdminFavicon',
       },
     },
     meta: {
@@ -62,7 +63,7 @@ export default buildConfig({
         title: 'This is a custom OG title',
       },
       // Text that appends the meta/page title displayed in the browser tab.
-      titleSuffix: '- Your App Name',
+      titleSuffix: '- Payload',
     },
     importMap: {
       baseDir: path.resolve(dirname),

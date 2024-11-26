@@ -17,8 +17,8 @@ import { SlugComponent as SlugComponent_92cc057d0a2abb4f6cf0307edf59f986 } from 
 import { HorizontalRuleFeatureClient as HorizontalRuleFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { LinkToDoc as LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
-import { Icon as Icon_9c1a3ff8a9adb7b1e4b7a5cd42725bdb } from 'src/graphics/Icon/index.tsx'
-import { SiteLogo as SiteLogo_74e9cf62ebd62c68a6cc3385a7c3ee86 } from 'src/Settings/components/SiteLogo/index.tsx'
+import { AdminFavicon as AdminFavicon_2374f17270f24852788acf9608f20b00 } from 'src/Settings/components/Favicon/admin.tsx'
+import { AdminLogo as AdminLogo_c4104b6c0dc860e91c6eaad906874f2d } from 'src/Settings/components/SiteLogo/admin.tsx'
 import { default as default_1a7510af427896d367a49dbf838d2de6 } from '@/components/BeforeDashboard'
 import { default as default_8a7ab0eb7ab5c511aba12e68480bfe5e } from '@/components/BeforeLogin'
 
@@ -42,8 +42,8 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#HorizontalRuleFeatureClient": HorizontalRuleFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/plugin-search/client#LinkToDoc": LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634,
-  "/graphics/Icon/index.tsx#Icon": Icon_9c1a3ff8a9adb7b1e4b7a5cd42725bdb,
-  "/Settings/components/SiteLogo/index.tsx#SiteLogo": SiteLogo_74e9cf62ebd62c68a6cc3385a7c3ee86,
+  "/Settings/components/Favicon/admin.tsx#AdminFavicon": AdminFavicon_2374f17270f24852788acf9608f20b00,
+  "/Settings/components/SiteLogo/admin.tsx#AdminLogo": AdminLogo_c4104b6c0dc860e91c6eaad906874f2d,
   "@/components/BeforeDashboard#default": default_1a7510af427896d367a49dbf838d2de6,
   "@/components/BeforeLogin#default": default_8a7ab0eb7ab5c511aba12e68480bfe5e
 }
