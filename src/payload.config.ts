@@ -35,7 +35,6 @@ export default buildConfig({
         Logo: '/Settings/components/SiteLogo/admin.tsx#AdminLogo',
         // Image component displayed above the Nav in the admin panel
         // often a condensed version of a full logo.
-        // Icon: '/graphics/Icon/index.tsx#Icon',
         Icon: '/Settings/components/Favicon/admin.tsx#AdminFavicon',
       },
     },
