@@ -1,30 +1,25 @@
-import type { Metadata } from 'next'
+import React from 'react'
 
 import { cn } from 'src/utilities/cn'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
-import React from 'react'
-
-import { AdminBar } from '@/components/AdminBar'
-import { Footer } from '@/Footer/Component'
-import { Navbar } from '@/Header/Navbar.server'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import { draftMode } from 'next/headers'
-
 import { getServerSideURL } from '@/utilities/getURL'
-import { DynamicFavicon } from '@/Settings/components/Favicon'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 
-import type { Graphic } from '@/payload-types'
+import { Header } from '@/Header'
+import { Footer } from '@/Footer/Component'
+import { DynamicFavicon } from '@/Settings/components/Favicon'
 
 import './globals.css'
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { isEnabled } = await draftMode()
+import type { Metadata } from 'next'
+import type { Graphic } from '@/payload-types'
 
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
   const faviconUrl =
     typeof graphics?.favicon === 'object' ? (graphics?.favicon?.url ?? undefined) : undefined
@@ -45,10 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             )}
             style={{ minHeight: '100dvh' }}
           >
-            <header className="h-max">
-              <AdminBar adminBarProps={{ preview: isEnabled }} />
-              <Navbar />
-            </header>
+            <Header />
             <main>{children}</main>
             <Footer />
           </div>

@@ -1,21 +1,24 @@
 'use client'
+
+import React, { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useHeaderTheme } from '@/providers/HeaderTheme'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
-
-import type { Header } from '@/payload-types'
-import { Nav } from './Nav'
-import { SiteLogo } from '@/Settings/components/SiteLogo'
 import { cn } from '@/utilities/cn'
 
-interface HeaderClientProps {
+import { SiteLogo } from '@/Settings/components/SiteLogo'
+import { SearchIcon } from 'lucide-react'
+import { CMSLink } from '@/components/Link'
+
+import type { Header } from '@/payload-types'
+
+interface NavBarProps {
   header: Header
   siteLogoUrl?: string
   className?: string
 }
 
-export const HeaderClient: React.FC<HeaderClientProps> = ({ header, siteLogoUrl, className }) => {
+export const NavBar: React.FC<NavBarProps> = ({ header, siteLogoUrl, className }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
@@ -31,6 +34,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ header, siteLogoUrl,
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
+  const navItems = header?.navItems || []
+
   return (
     <div
       className={cn('container relative z-20', className)}
@@ -45,7 +50,16 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ header, siteLogoUrl,
             className="invert dark:invert-0"
           />
         </Link>
-        <Nav header={header} />
+
+        <nav className="flex gap-3 items-center">
+          {navItems.map(({ link }, i) => {
+            return <CMSLink key={i} {...link} appearance="link" />
+          })}
+          <Link href="/search">
+            <span className="sr-only">Search</span>
+            <SearchIcon className="w-5 text-primary" />
+          </Link>
+        </nav>
       </div>
     </div>
   )
