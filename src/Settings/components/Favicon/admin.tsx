@@ -7,9 +7,11 @@ interface FaviconProps {
 }
 
 export const AdminFavicon: React.FC<FaviconProps> = async () => {
-  const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
+  const graphics = (await getCachedGlobal('graphics', 2)()) as Graphic
   const faviconUrl =
-    typeof graphics?.favicon === 'object' ? (graphics?.favicon?.url ?? undefined) : undefined
+    typeof graphics?.meta?.favicon === 'object'
+      ? (graphics?.meta?.favicon?.url ?? undefined)
+      : undefined
 
   if (!faviconUrl) {
     return (

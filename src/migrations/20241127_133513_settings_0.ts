@@ -66,8 +66,10 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "graphics" (
   	"id" serial PRIMARY KEY NOT NULL,
-  	"site_logo_id" integer,
-  	"favicon_id" integer,
+  	"site_logo_light_id" integer,
+  	"site_logo_dark_id" integer,
+  	"meta_favicon_id" integer,
+  	"meta_brand_image_id" integer,
   	"updated_at" timestamp(3) with time zone,
   	"created_at" timestamp(3) with time zone
   );
@@ -91,13 +93,25 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
   
   ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "assets_id" integer;
   DO $$ BEGIN
-   ALTER TABLE "graphics" ADD CONSTRAINT "graphics_site_logo_id_assets_id_fk" FOREIGN KEY ("site_logo_id") REFERENCES "public"."assets"("id") ON DELETE set null ON UPDATE no action;
+   ALTER TABLE "graphics" ADD CONSTRAINT "graphics_site_logo_light_id_assets_id_fk" FOREIGN KEY ("site_logo_light_id") REFERENCES "public"."assets"("id") ON DELETE set null ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
   END $$;
   
   DO $$ BEGIN
-   ALTER TABLE "graphics" ADD CONSTRAINT "graphics_favicon_id_assets_id_fk" FOREIGN KEY ("favicon_id") REFERENCES "public"."assets"("id") ON DELETE set null ON UPDATE no action;
+   ALTER TABLE "graphics" ADD CONSTRAINT "graphics_site_logo_dark_id_assets_id_fk" FOREIGN KEY ("site_logo_dark_id") REFERENCES "public"."assets"("id") ON DELETE set null ON UPDATE no action;
+  EXCEPTION
+   WHEN duplicate_object THEN null;
+  END $$;
+  
+  DO $$ BEGIN
+   ALTER TABLE "graphics" ADD CONSTRAINT "graphics_meta_favicon_id_assets_id_fk" FOREIGN KEY ("meta_favicon_id") REFERENCES "public"."assets"("id") ON DELETE set null ON UPDATE no action;
+  EXCEPTION
+   WHEN duplicate_object THEN null;
+  END $$;
+  
+  DO $$ BEGIN
+   ALTER TABLE "graphics" ADD CONSTRAINT "graphics_meta_brand_image_id_assets_id_fk" FOREIGN KEY ("meta_brand_image_id") REFERENCES "public"."assets"("id") ON DELETE set null ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
   END $$;
@@ -111,8 +125,10 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "assets_sizes_medium_sizes_medium_filename_idx" ON "assets" USING btree ("sizes_medium_filename");
   CREATE INDEX IF NOT EXISTS "assets_sizes_large_sizes_large_filename_idx" ON "assets" USING btree ("sizes_large_filename");
   CREATE INDEX IF NOT EXISTS "assets_sizes_xlarge_sizes_xlarge_filename_idx" ON "assets" USING btree ("sizes_xlarge_filename");
-  CREATE INDEX IF NOT EXISTS "graphics_site_logo_idx" ON "graphics" USING btree ("site_logo_id");
-  CREATE INDEX IF NOT EXISTS "graphics_favicon_idx" ON "graphics" USING btree ("favicon_id");
+  CREATE INDEX IF NOT EXISTS "graphics_site_logo_site_logo_light_idx" ON "graphics" USING btree ("site_logo_light_id");
+  CREATE INDEX IF NOT EXISTS "graphics_site_logo_site_logo_dark_idx" ON "graphics" USING btree ("site_logo_dark_id");
+  CREATE INDEX IF NOT EXISTS "graphics_meta_meta_favicon_idx" ON "graphics" USING btree ("meta_favicon_id");
+  CREATE INDEX IF NOT EXISTS "graphics_meta_meta_brand_image_idx" ON "graphics" USING btree ("meta_brand_image_id");
   DO $$ BEGIN
    ALTER TABLE "payload_locked_documents_rels" ADD CONSTRAINT "payload_locked_documents_rels_assets_fk" FOREIGN KEY ("assets_id") REFERENCES "public"."assets"("id") ON DELETE cascade ON UPDATE no action;
   EXCEPTION

@@ -6,18 +6,20 @@ import { NavBar } from './NavBar'
 
 import type { Graphic, Header } from '@/payload-types'
 
-export async function Header({ className }: { className?: string }) {
+export async function Header({ logoUrl, className }: { logoUrl?: string; className?: string }) {
   const { isEnabled } = await draftMode()
 
   const header: Header = await getCachedGlobal('header', 1)()
-  const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
-  const siteLogoUrl =
-    typeof graphics?.siteLogo === 'object' ? (graphics?.siteLogo?.url ?? undefined) : undefined
+  // const graphics = (await getCachedGlobal('graphics', 2)()) as Graphic
+  // const siteLogoLightUrl =
+  //   typeof graphics?.siteLogo?.light === 'object'
+  //     ? (graphics?.siteLogo?.light?.url ?? undefined)
+  //     : undefined
 
   return (
     <header className="h-max">
       <AdminBar adminBarProps={{ preview: isEnabled }} />
-      <NavBar header={header} siteLogoUrl={siteLogoUrl} className={className} />
+      <NavBar header={header} logoUrl={logoUrl} className={className} />
     </header>
   )
 }

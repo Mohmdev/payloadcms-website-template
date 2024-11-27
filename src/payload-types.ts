@@ -1440,8 +1440,14 @@ export interface SiteInfo {
  */
 export interface Graphic {
   id: number;
-  siteLogo?: (number | null) | Asset;
-  favicon?: (number | null) | Asset;
+  siteLogo?: {
+    light?: (number | null) | Asset;
+    dark?: (number | null) | Asset;
+  };
+  meta?: {
+    favicon?: (number | null) | Asset;
+    brandImage?: (number | null) | Asset;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1531,8 +1537,18 @@ export interface SiteInfoSelect<T extends boolean = true> {
  * via the `definition` "graphics_select".
  */
 export interface GraphicsSelect<T extends boolean = true> {
-  siteLogo?: T;
-  favicon?: T;
+  siteLogo?:
+    | T
+    | {
+        light?: T;
+        dark?: T;
+      };
+  meta?:
+    | T
+    | {
+        favicon?: T;
+        brandImage?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

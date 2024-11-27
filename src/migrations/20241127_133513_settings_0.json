@@ -1,5 +1,5 @@
 {
-  "id": "d55c0e97-4b5b-4b7e-b058-0f6d7479acc8",
+  "id": "435d5500-fc81-40ed-b1f2-7543b905e29b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -8434,14 +8434,26 @@
           "primaryKey": true,
           "notNull": true
         },
-        "site_logo_id": {
-          "name": "site_logo_id",
+        "site_logo_light_id": {
+          "name": "site_logo_light_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "favicon_id": {
-          "name": "favicon_id",
+        "site_logo_dark_id": {
+          "name": "site_logo_dark_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "meta_favicon_id": {
+          "name": "meta_favicon_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "meta_brand_image_id": {
+          "name": "meta_brand_image_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -8460,11 +8472,11 @@
         }
       },
       "indexes": {
-        "graphics_site_logo_idx": {
-          "name": "graphics_site_logo_idx",
+        "graphics_site_logo_site_logo_light_idx": {
+          "name": "graphics_site_logo_site_logo_light_idx",
           "columns": [
             {
-              "expression": "site_logo_id",
+              "expression": "site_logo_light_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -8475,11 +8487,41 @@
           "method": "btree",
           "with": {}
         },
-        "graphics_favicon_idx": {
-          "name": "graphics_favicon_idx",
+        "graphics_site_logo_site_logo_dark_idx": {
+          "name": "graphics_site_logo_site_logo_dark_idx",
           "columns": [
             {
-              "expression": "favicon_id",
+              "expression": "site_logo_dark_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "graphics_meta_meta_favicon_idx": {
+          "name": "graphics_meta_meta_favicon_idx",
+          "columns": [
+            {
+              "expression": "meta_favicon_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "graphics_meta_meta_brand_image_idx": {
+          "name": "graphics_meta_meta_brand_image_idx",
+          "columns": [
+            {
+              "expression": "meta_brand_image_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -8492,12 +8534,12 @@
         }
       },
       "foreignKeys": {
-        "graphics_site_logo_id_assets_id_fk": {
-          "name": "graphics_site_logo_id_assets_id_fk",
+        "graphics_site_logo_light_id_assets_id_fk": {
+          "name": "graphics_site_logo_light_id_assets_id_fk",
           "tableFrom": "graphics",
           "tableTo": "assets",
           "columnsFrom": [
-            "site_logo_id"
+            "site_logo_light_id"
           ],
           "columnsTo": [
             "id"
@@ -8505,12 +8547,38 @@
           "onDelete": "set null",
           "onUpdate": "no action"
         },
-        "graphics_favicon_id_assets_id_fk": {
-          "name": "graphics_favicon_id_assets_id_fk",
+        "graphics_site_logo_dark_id_assets_id_fk": {
+          "name": "graphics_site_logo_dark_id_assets_id_fk",
           "tableFrom": "graphics",
           "tableTo": "assets",
           "columnsFrom": [
-            "favicon_id"
+            "site_logo_dark_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "graphics_meta_favicon_id_assets_id_fk": {
+          "name": "graphics_meta_favicon_id_assets_id_fk",
+          "tableFrom": "graphics",
+          "tableTo": "assets",
+          "columnsFrom": [
+            "meta_favicon_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "graphics_meta_brand_image_id_assets_id_fk": {
+          "name": "graphics_meta_brand_image_id_assets_id_fk",
+          "tableFrom": "graphics",
+          "tableTo": "assets",
+          "columnsFrom": [
+            "meta_brand_image_id"
           ],
           "columnsTo": [
             "id"

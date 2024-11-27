@@ -6,9 +6,11 @@ import { getCachedGlobal } from '@/utilities/getGlobals'
 import type { Graphic } from '@/payload-types'
 
 export const AdminLogo = async () => {
-  const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
+  const graphics = (await getCachedGlobal('graphics', 2)()) as Graphic
   const siteLogoUrl =
-    typeof graphics?.siteLogo === 'object' ? (graphics?.siteLogo?.url ?? undefined) : undefined
+    typeof graphics?.siteLogo?.light === 'object'
+      ? (graphics?.siteLogo?.light?.url ?? undefined)
+      : undefined
 
   const loading = 'lazy'
   const priority = 'low'

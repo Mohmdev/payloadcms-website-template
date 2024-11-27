@@ -11,7 +11,7 @@ import { getServerSideURL } from '@/utilities/getURL'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 
 import { Header } from '@/Header'
-import { Footer } from '@/Footer/Component'
+import { Footer } from '@/Footer'
 import { DynamicFavicon } from '@/Settings/components/Favicon'
 
 import './globals.css'
@@ -20,9 +20,19 @@ import type { Metadata } from 'next'
 import type { Graphic } from '@/payload-types'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
+  const graphics = (await getCachedGlobal('graphics', 2)()) as Graphic
+  const logoLightUrl =
+    typeof graphics?.siteLogo?.light === 'object'
+      ? (graphics?.siteLogo?.light?.url ?? undefined)
+      : undefined
+  const logoDarkUrl =
+    typeof graphics?.siteLogo?.dark === 'object'
+      ? (graphics?.siteLogo?.dark?.url ?? undefined)
+      : undefined
   const faviconUrl =
-    typeof graphics?.favicon === 'object' ? (graphics?.favicon?.url ?? undefined) : undefined
+    typeof graphics?.meta?.favicon === 'object'
+      ? (graphics?.meta?.favicon?.url ?? undefined)
+      : undefined
 
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
@@ -40,9 +50,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             )}
             style={{ minHeight: '100dvh' }}
           >
-            <Header />
+            <Header logoUrl={logoLightUrl} />
             <main>{children}</main>
-            <Footer />
+            <Footer logoUrl={logoLightUrl} />
           </div>
         </Providers>
       </body>

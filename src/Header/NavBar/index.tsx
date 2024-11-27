@@ -14,11 +14,11 @@ import type { Header } from '@/payload-types'
 
 interface NavBarProps {
   header: Header
-  siteLogoUrl?: string
+  logoUrl?: string
   className?: string
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ header, siteLogoUrl, className }) => {
+export const NavBar: React.FC<NavBarProps> = ({ header, logoUrl, className }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
@@ -44,10 +44,10 @@ export const NavBar: React.FC<NavBarProps> = ({ header, siteLogoUrl, className }
       <div className="py-8 border-b border-border flex justify-between">
         <Link href="/">
           <SiteLogo
-            logoUrl={siteLogoUrl}
+            logoUrl={logoUrl}
             loading="eager"
             priority="high"
-            className="invert dark:invert-0"
+            // className="invert dark:invert-0"
           />
         </Link>
 
