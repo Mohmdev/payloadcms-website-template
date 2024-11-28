@@ -1,4 +1,4 @@
-import type { Graphic } from '@/payload-types'
+import type { Asset, Graphic } from '@/payload-types'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import React from 'react'
 
@@ -7,11 +7,8 @@ interface FaviconProps {
 }
 
 export const AdminFavicon: React.FC<FaviconProps> = async () => {
-  const graphics = (await getCachedGlobal('graphics', 2)()) as Graphic
-  const faviconUrl =
-    typeof graphics?.meta?.favicon === 'object'
-      ? (graphics?.meta?.favicon?.url ?? undefined)
-      : undefined
+  const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
+  const faviconUrl = (graphics?.favicon as Asset)?.url ?? undefined
 
   if (!faviconUrl) {
     return (

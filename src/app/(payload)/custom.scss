@@ -1,0 +1,55 @@
+// All nav-groups
+.nav-group {
+  .nav-group__toggle {
+    .nav-group__label {
+      font-weight: 500;
+      font-size: 14px;
+      // color: var(--theme-text);
+    }
+  }
+
+  // Target the content within the nav-group when it's open
+  .rah-static[aria-hidden='false'] {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// "Collections" nav-group
+.nav-group {
+  &.Collections {
+    margin-top: 5%;
+    margin-bottom: 2rem;
+
+    // hide the toggle button
+    .nav-group__toggle {
+      display: none;
+    }
+
+    // Force the collapsible content to always be visible
+    .rah-static {
+      height: auto !important;
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+
+      > div {
+        display: block !important;
+        visibility: visible !important;
+      }
+    }
+
+    .nav__link-label {
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    [class*='rah-static'] {
+      transition: none !important;
+    }
+
+    [aria-hidden='true'] {
+      display: block !important;
+      visibility: visible !important;
+    }
+  }
+}

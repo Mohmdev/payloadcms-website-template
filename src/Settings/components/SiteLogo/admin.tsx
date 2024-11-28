@@ -3,14 +3,11 @@ import React from 'react'
 import Image from 'next/image'
 
 import { getCachedGlobal } from '@/utilities/getGlobals'
-import type { Graphic } from '@/payload-types'
+import type { Asset, Graphic } from '@/payload-types'
 
 export const AdminLogo = async () => {
-  const graphics = (await getCachedGlobal('graphics', 2)()) as Graphic
-  const siteLogoUrl =
-    typeof graphics?.siteLogo?.light === 'object'
-      ? (graphics?.siteLogo?.light?.url ?? undefined)
-      : undefined
+  const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
+  const siteLogoUrl = (graphics?.logoLight as Asset)?.url ?? undefined
 
   const loading = 'lazy'
   const priority = 'low'

@@ -1,5 +1,5 @@
 {
-  "id": "435d5500-fc81-40ed-b1f2-7543b905e29b",
+  "id": "d6359384-6b34-4b53-9fd8-115b50fc071f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -4927,222 +4927,6 @@
           "type": "numeric",
           "primaryKey": false,
           "notNull": false
-        },
-        "sizes_thumbnail_url": {
-          "name": "sizes_thumbnail_url",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_thumbnail_width": {
-          "name": "sizes_thumbnail_width",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_thumbnail_height": {
-          "name": "sizes_thumbnail_height",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_thumbnail_mime_type": {
-          "name": "sizes_thumbnail_mime_type",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_thumbnail_filesize": {
-          "name": "sizes_thumbnail_filesize",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_thumbnail_filename": {
-          "name": "sizes_thumbnail_filename",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_square_url": {
-          "name": "sizes_square_url",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_square_width": {
-          "name": "sizes_square_width",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_square_height": {
-          "name": "sizes_square_height",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_square_mime_type": {
-          "name": "sizes_square_mime_type",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_square_filesize": {
-          "name": "sizes_square_filesize",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_square_filename": {
-          "name": "sizes_square_filename",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_small_url": {
-          "name": "sizes_small_url",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_small_width": {
-          "name": "sizes_small_width",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_small_height": {
-          "name": "sizes_small_height",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_small_mime_type": {
-          "name": "sizes_small_mime_type",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_small_filesize": {
-          "name": "sizes_small_filesize",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_small_filename": {
-          "name": "sizes_small_filename",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_medium_url": {
-          "name": "sizes_medium_url",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_medium_width": {
-          "name": "sizes_medium_width",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_medium_height": {
-          "name": "sizes_medium_height",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_medium_mime_type": {
-          "name": "sizes_medium_mime_type",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_medium_filesize": {
-          "name": "sizes_medium_filesize",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_medium_filename": {
-          "name": "sizes_medium_filename",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_large_url": {
-          "name": "sizes_large_url",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_large_width": {
-          "name": "sizes_large_width",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_large_height": {
-          "name": "sizes_large_height",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_large_mime_type": {
-          "name": "sizes_large_mime_type",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_large_filesize": {
-          "name": "sizes_large_filesize",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_large_filename": {
-          "name": "sizes_large_filename",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_xlarge_url": {
-          "name": "sizes_xlarge_url",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_xlarge_width": {
-          "name": "sizes_xlarge_width",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_xlarge_height": {
-          "name": "sizes_xlarge_height",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_xlarge_mime_type": {
-          "name": "sizes_xlarge_mime_type",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_xlarge_filesize": {
-          "name": "sizes_xlarge_filesize",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "sizes_xlarge_filename": {
-          "name": "sizes_xlarge_filename",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
         }
       },
       "indexes": {
@@ -5187,96 +4971,6 @@
             }
           ],
           "isUnique": true,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "assets_sizes_thumbnail_sizes_thumbnail_filename_idx": {
-          "name": "assets_sizes_thumbnail_sizes_thumbnail_filename_idx",
-          "columns": [
-            {
-              "expression": "sizes_thumbnail_filename",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "assets_sizes_square_sizes_square_filename_idx": {
-          "name": "assets_sizes_square_sizes_square_filename_idx",
-          "columns": [
-            {
-              "expression": "sizes_square_filename",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "assets_sizes_small_sizes_small_filename_idx": {
-          "name": "assets_sizes_small_sizes_small_filename_idx",
-          "columns": [
-            {
-              "expression": "sizes_small_filename",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "assets_sizes_medium_sizes_medium_filename_idx": {
-          "name": "assets_sizes_medium_sizes_medium_filename_idx",
-          "columns": [
-            {
-              "expression": "sizes_medium_filename",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "assets_sizes_large_sizes_large_filename_idx": {
-          "name": "assets_sizes_large_sizes_large_filename_idx",
-          "columns": [
-            {
-              "expression": "sizes_large_filename",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "assets_sizes_xlarge_sizes_xlarge_filename_idx": {
-          "name": "assets_sizes_xlarge_sizes_xlarge_filename_idx",
-          "columns": [
-            {
-              "expression": "sizes_xlarge_filename",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
           "concurrently": false,
           "method": "btree",
           "with": {}
@@ -8434,26 +8128,26 @@
           "primaryKey": true,
           "notNull": true
         },
-        "site_logo_light_id": {
-          "name": "site_logo_light_id",
+        "logo_light_id": {
+          "name": "logo_light_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "site_logo_dark_id": {
-          "name": "site_logo_dark_id",
+        "logo_dark_id": {
+          "name": "logo_dark_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "meta_favicon_id": {
-          "name": "meta_favicon_id",
+        "favicon_id": {
+          "name": "favicon_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "meta_brand_image_id": {
-          "name": "meta_brand_image_id",
+        "brand_image_id": {
+          "name": "brand_image_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -8472,11 +8166,11 @@
         }
       },
       "indexes": {
-        "graphics_site_logo_site_logo_light_idx": {
-          "name": "graphics_site_logo_site_logo_light_idx",
+        "graphics_logo_light_idx": {
+          "name": "graphics_logo_light_idx",
           "columns": [
             {
-              "expression": "site_logo_light_id",
+              "expression": "logo_light_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -8487,11 +8181,11 @@
           "method": "btree",
           "with": {}
         },
-        "graphics_site_logo_site_logo_dark_idx": {
-          "name": "graphics_site_logo_site_logo_dark_idx",
+        "graphics_logo_dark_idx": {
+          "name": "graphics_logo_dark_idx",
           "columns": [
             {
-              "expression": "site_logo_dark_id",
+              "expression": "logo_dark_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -8502,11 +8196,11 @@
           "method": "btree",
           "with": {}
         },
-        "graphics_meta_meta_favicon_idx": {
-          "name": "graphics_meta_meta_favicon_idx",
+        "graphics_favicon_idx": {
+          "name": "graphics_favicon_idx",
           "columns": [
             {
-              "expression": "meta_favicon_id",
+              "expression": "favicon_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -8517,11 +8211,11 @@
           "method": "btree",
           "with": {}
         },
-        "graphics_meta_meta_brand_image_idx": {
-          "name": "graphics_meta_meta_brand_image_idx",
+        "graphics_brand_image_idx": {
+          "name": "graphics_brand_image_idx",
           "columns": [
             {
-              "expression": "meta_brand_image_id",
+              "expression": "brand_image_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -8534,12 +8228,12 @@
         }
       },
       "foreignKeys": {
-        "graphics_site_logo_light_id_assets_id_fk": {
-          "name": "graphics_site_logo_light_id_assets_id_fk",
+        "graphics_logo_light_id_assets_id_fk": {
+          "name": "graphics_logo_light_id_assets_id_fk",
           "tableFrom": "graphics",
           "tableTo": "assets",
           "columnsFrom": [
-            "site_logo_light_id"
+            "logo_light_id"
           ],
           "columnsTo": [
             "id"
@@ -8547,12 +8241,12 @@
           "onDelete": "set null",
           "onUpdate": "no action"
         },
-        "graphics_site_logo_dark_id_assets_id_fk": {
-          "name": "graphics_site_logo_dark_id_assets_id_fk",
+        "graphics_logo_dark_id_assets_id_fk": {
+          "name": "graphics_logo_dark_id_assets_id_fk",
           "tableFrom": "graphics",
           "tableTo": "assets",
           "columnsFrom": [
-            "site_logo_dark_id"
+            "logo_dark_id"
           ],
           "columnsTo": [
             "id"
@@ -8560,12 +8254,12 @@
           "onDelete": "set null",
           "onUpdate": "no action"
         },
-        "graphics_meta_favicon_id_assets_id_fk": {
-          "name": "graphics_meta_favicon_id_assets_id_fk",
+        "graphics_favicon_id_assets_id_fk": {
+          "name": "graphics_favicon_id_assets_id_fk",
           "tableFrom": "graphics",
           "tableTo": "assets",
           "columnsFrom": [
-            "meta_favicon_id"
+            "favicon_id"
           ],
           "columnsTo": [
             "id"
@@ -8573,12 +8267,12 @@
           "onDelete": "set null",
           "onUpdate": "no action"
         },
-        "graphics_meta_brand_image_id_assets_id_fk": {
-          "name": "graphics_meta_brand_image_id_assets_id_fk",
+        "graphics_brand_image_id_assets_id_fk": {
+          "name": "graphics_brand_image_id_assets_id_fk",
           "tableFrom": "graphics",
           "tableTo": "assets",
           "columnsFrom": [
-            "meta_brand_image_id"
+            "brand_image_id"
           ],
           "columnsTo": [
             "id"

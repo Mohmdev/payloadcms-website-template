@@ -17,22 +17,13 @@ import { DynamicFavicon } from '@/Settings/components/Favicon'
 import './globals.css'
 
 import type { Metadata } from 'next'
-import type { Graphic } from '@/payload-types'
+import type { Asset, Graphic } from '@/payload-types'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const graphics = (await getCachedGlobal('graphics', 2)()) as Graphic
-  const logoLightUrl =
-    typeof graphics?.siteLogo?.light === 'object'
-      ? (graphics?.siteLogo?.light?.url ?? undefined)
-      : undefined
-  const logoDarkUrl =
-    typeof graphics?.siteLogo?.dark === 'object'
-      ? (graphics?.siteLogo?.dark?.url ?? undefined)
-      : undefined
-  const faviconUrl =
-    typeof graphics?.meta?.favicon === 'object'
-      ? (graphics?.meta?.favicon?.url ?? undefined)
-      : undefined
+  const graphics = (await getCachedGlobal('graphics', 1)()) as Graphic
+  const logoLightUrl = (graphics?.logoLight as Asset)?.url ?? undefined
+  const logoDarkUrl = (graphics?.logoDark as Asset)?.url ?? undefined
+  const faviconUrl = (graphics?.favicon as Asset)?.url ?? undefined
 
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
