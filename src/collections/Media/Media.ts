@@ -45,6 +45,7 @@ export const Media: CollectionConfig = {
     crop: true,
     displayPreview: true,
     focalPoint: true,
+    mimeTypes: ['image/*', 'video/*'],
     imageSizes: [
       {
         name: 'thumbnail',

@@ -43,9 +43,10 @@ export const MediaBlock: React.FC<Props> = (props) => {
       )}
     >
       <Media
-        imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
         resource={media}
         src={staticImage}
+        imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
+        videoClassName={cn('w-full border border-border rounded-[0.8rem]', imgClassName)}
       />
       {caption && (
         <div
